@@ -1,0 +1,22 @@
+---
+# tasks file for backup-client
+- name: add backup-client user
+  user:
+    name: backup-client
+    comment: User used for rsync from backupPC host
+- name: Add authoriozed key to user backup-client
+  authorized_key:
+    user: backup-client
+    exclusive: true
+    key: '{{ backup_client_ssh_pupkey }}'
+    comment: backuppc@BackupPC
+- name: add sudoers rule for user
+  lineinfile:
+    dest: /etc/sudoers.d/10_backuppc
+    line: 'backup-client ALL=NOPASSWD:/usr/bin/rsync'
+    validate: '/usr/sbin/visudo -cf %s'
+- name: install nessescary packages
+  apt:
+    state: latest
+    name: 
+    - 'rsync'

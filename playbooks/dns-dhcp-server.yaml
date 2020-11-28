@@ -1,0 +1,9 @@
+---
+
+- name: dns-dcp-server.yaml | All roles
+  hosts: internal_gateway
+  become: True
+  become_user: root
+
+  roles:
+    - { role: dnsmasq,          tags: ["dnsmasq"] }

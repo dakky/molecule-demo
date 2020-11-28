@@ -1,0 +1,9 @@
+---
+
+- name: backup_client.yaml | All roles
+  hosts: backup_client
+  become: True
+  become_user: root
+
+  roles:
+    - { role: backup-client,          tags: ["backup-client"] }

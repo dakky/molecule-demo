@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Robert
+  description: dnsmasq for my internal gateway
+  company: dakkar.eu
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: ubuntu
+    versions:
+    - 20.04
+
+  galaxy_tags: []
+
+dependencies: []

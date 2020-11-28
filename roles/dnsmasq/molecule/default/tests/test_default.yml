@@ -1,0 +1,17 @@
+package:
+  dnsmasq:
+    installed: true
+
+file:
+  /etc/dnsmasq.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    contains:
+      - domain=intern.dakkar.eu
+
+service:
+  dnsmasq:
+    enabled: true
+    running: true

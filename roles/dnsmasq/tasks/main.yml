@@ -1,0 +1,28 @@
+---
+# tasks file for dnsmasq
+- name: Install service
+  apt:
+    name: dnsmasq
+    state: latest
+    update_cache: true
+- name: Copy dnsmasq.conf to hosts
+  copy:
+    src: files/etc/dnsmasq.conf
+    dest: /etc/dnsmasq.conf
+    backup: true
+    mode: 0644
+    owner: root
+    group: root
+  notify: restart_service
+- name: adding non-dhcp hosts to /etc/hosts
+  lineinfile:
+    state: present
+    path: /etc/hosts
+    line: "{{ item.line }}"
+  with_items:
+    - { line: '192.168.100.1   host1' }
+    - { line: '192.168.100.2   host2' }
+    - { line: '192.168.100.100 gateway' }
+  notify: restart_service
+  tags:
+    - molecule-notest
