@@ -74,3 +74,10 @@ ansible tasks mit /etc/hosts => docker mag das nicht
 
 ## dockercapabilties
 je nach use case (zB `setcap()`)ist zB `ALL` nötig => security kritisch => dedizierter test host?
+
+
+
+# screencasts
+
+[![asciicast](https://asciinema.org/a/wSbuKaifShCEFobXudMNnkmD9.svg)](https://asciinema.org/a/wSbuKaifShCEFobXudMNnkmD9)
+
